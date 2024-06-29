@@ -28,6 +28,7 @@ main {
 
 h1, h2 {
     text-align: center;
+    color: #fff; /* Text color for headers */
 }
 
 .roadmap {
@@ -59,6 +60,7 @@ ul {
 
 .topic-details {
     display: none;
+    padding-left: 20px; /* Indent nested lists */
 }
 
 .topic-name {
@@ -72,6 +74,7 @@ ul {
 
 .topic-info {
     display: none;
+    padding-left: 20px; /* Indent nested lists */
 }
 
 .topic-info p {
@@ -82,3 +85,4 @@ ul {
     list-style-type: circle;
     margin-left: 20px;
 }
+
