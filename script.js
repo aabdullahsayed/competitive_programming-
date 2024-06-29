@@ -1,32 +1,21 @@
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', function() {
     const topicTitles = document.querySelectorAll('.topic-title');
-    const topicNames = document.querySelectorAll('.topic-name');
 
     topicTitles.forEach(title => {
-        title.addEventListener('click', () => {
-            const targetId = title.getAttribute('data-target');
-            const targetElement = document.getElementById(targetId);
-
-            if (targetElement.style.display === 'none' || targetElement.style.display === '') {
-                targetElement.style.display = 'block';
-                title.classList.add('clicked');
-            } else {
-                targetElement.style.display = 'none';
-                title.classList.remove('clicked');
-            }
+        title.addEventListener('click', function() {
+            const details = this.nextElementSibling;
+            details.classList.toggle('show');
+            this.classList.toggle('clicked');
         });
     });
 
+    const topicNames = document.querySelectorAll('.topic-name');
+
     topicNames.forEach(name => {
-        name.addEventListener('click', () => {
-            const info = name.nextElementSibling;
-            if (info.style.display === 'none' || info.style.display === '') {
-                info.style.display = 'block';
-                name.style.color = 'blue';
-            } else {
-                info.style.display = 'none';
-                name.style.color = '#007bff';
-            }
+        name.addEventListener('click', function() {
+            const info = this.nextElementSibling;
+            info.classList.toggle('show');
+            this.classList.toggle('clicked');
         });
     });
 });
