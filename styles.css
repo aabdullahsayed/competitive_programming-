@@ -4,7 +4,7 @@ body {
     padding: 0;
     background-color: #000;
     color: #fff;
-    font-size: 18px; /* Increase font size */
+    font-size: 18px;
 }
 
 header {
@@ -28,61 +28,44 @@ main {
 
 h1, h2 {
     text-align: center;
-    color: #fff; /* Text color for headers */
+    color: #fff;
 }
 
 .roadmap {
     max-width: 800px;
     margin: 0 auto;
-    background-color: #1c1c1c; /* Dark background color */
+    background-color: #1c1c1c;
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1); /* White shadow for contrast */
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
 }
 
-ol {
-    list-style-type: decimal;
+.topic-details, .topic-info {
+    display: none;
 }
 
-ul {
+.topic-details.show, .topic-info.show {
+    display: block;
+}
+
+.topic-title, .topic-name {
+    cursor: pointer;
+    color: #007bff;
+    display: block;
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+.topic-title.clicked, .topic-name.clicked {
+    color: blue;
+}
+
+.topic-info ul, .topic-details ul {
     list-style-type: disc;
     margin-left: 20px;
 }
 
-.topic-title {
-    cursor: pointer;
-    color: #007bff;
-}
-
-.topic-title.clicked {
-    color: blue;
-}
-
-.topic-details {
-    display: none;
-    padding-left: 20px; /* Indent nested lists */
-}
-
-.topic-name {
-    cursor: pointer;
-    color: #007bff;
-}
-
-.topic-name:hover {
-    text-decoration: underline;
-}
-
-.topic-info {
-    display: none;
-    padding-left: 20px; /* Indent nested lists */
-}
-
-.topic-info p {
-    margin: 5px 0;
-}
-
-.topic-info ul {
+.topic-info ul ul, .topic-details ul ul {
     list-style-type: circle;
     margin-left: 20px;
 }
-
