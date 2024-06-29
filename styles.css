@@ -1,84 +1,32 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
-    color: #333;
-}
+document.addEventListener('DOMContentLoaded', () => {
+    const topicTitles = document.querySelectorAll('.topic-title');
+    const topicNames = document.querySelectorAll('.topic-name');
 
-header {
-    background-color: #007bff;
-    color: #fff;
-    padding: 20px;
-    text-align: center;
-}
+    topicTitles.forEach(title => {
+        title.addEventListener('click', () => {
+            const targetId = title.getAttribute('data-target');
+            const targetElement = document.getElementById(targetId);
 
-header a {
-    color: #fff;
-    text-decoration: none;
-    margin-top: 10px;
-    display: inline-block;
-    font-size: 16px;
-}
+            if (targetElement.style.display === 'none' || targetElement.style.display === '') {
+                targetElement.style.display = 'block';
+                title.classList.add('clicked');
+            } else {
+                targetElement.style.display = 'none';
+                title.classList.remove('clicked');
+            }
+        });
+    });
 
-main {
-    padding: 20px;
-}
-
-h1, h2 {
-    text-align: center;
-}
-
-.roadmap {
-    max-width: 800px;
-    margin: 0 auto;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-ol {
-    list-style-type: decimal;
-}
-
-ul {
-    list-style-type: disc;
-    margin-left: 20px;
-}
-
-.topic-title {
-    cursor: pointer;
-    color: #007bff;
-}
-
-.topic-title.clicked {
-    color: blue;
-}
-
-.topic-details {
-    display: none;
-}
-
-.topic-name {
-    cursor: pointer;
-    color: #007bff;
-}
-
-.topic-name:hover {
-    text-decoration: underline;
-}
-
-.topic-info {
-    display: none;
-}
-
-.topic-info p {
-    margin: 5px 0;
-}
-
-.topic-info ul {
-    list-style-type: circle;
-    margin-left: 20px;
-}
-
+    topicNames.forEach(name => {
+        name.addEventListener('click', () => {
+            const info = name.nextElementSibling;
+            if (info.style.display === 'none' || info.style.display === '') {
+                info.style.display = 'block';
+                name.style.color = 'blue';
+            } else {
+                info.style.display = 'none';
+                name.style.color = '#007bff';
+            }
+        });
+    });
+});
