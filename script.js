@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     topicNames.forEach(name => {
         name.addEventListener('click', function() {
-            const info = this.nextElementSibling;
+            const info = this.nextElementSibling.querySelector('.topic-info');
             info.classList.toggle('show');
             this.classList.toggle('clicked');
         });
